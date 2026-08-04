@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:practice/01-08(welcome).dart';
 
-
-import '08-07-2026(todo).dart';
+import 'layout_1.dart';
 
 
 void main() {
@@ -19,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: welcome(),
+      home: Layout(),
     );
   }
 }

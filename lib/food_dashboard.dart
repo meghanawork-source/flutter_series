@@ -11,22 +11,21 @@ class Food_Dashboard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                      Padding(
-                       padding: const EdgeInsets.all(20.0),
+                       padding: const EdgeInsets.all(5.0),
                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                          children: [
                             Text("TORTILLA",style: TextStyle(fontWeight: FontWeight.w800,fontSize: 40,color: Colors.brown),),
-                            SizedBox(width: 20,),
+                            SizedBox(width: 15,),
                             Container(
-                              width: 50,
-                                height: 50,
-                                color: Colors.white,
+                              width: 40,
+                                height: 40,
                                 decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.white,width: 1),
-                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all(color: Colors.brown,width: 2),
+                                  borderRadius: BorderRadius.circular(40),
                                   boxShadow: [
                                     BoxShadow(
-                                      color: Colors.white,
+                                      color: Color(0xFFFFFFFF),
                                       spreadRadius: 5,
                                       offset: const Offset(4, 4),
                                       blurRadius: 10,
@@ -34,17 +33,16 @@ class Food_Dashboard extends StatelessWidget {
                                   ]
                                 ),
                                 child: Icon(Icons.notification_important,size: 20,color: Colors.brown,)),
-                           SizedBox(width: 20,),
+                           SizedBox(width: 10,),
                            Container(
-                               width: 50,
-                               height: 50,
-                               color: Colors.white,
+                               width: 40,
+                               height: 40,
                                decoration: BoxDecoration(
-                                   border: Border.all(color: Colors.white,width: 1),
-                                   borderRadius: BorderRadius.circular(20),
+                                   border: Border.all(color: Colors.brown,width: 2),
+                                   borderRadius: BorderRadius.circular(40),
                                    boxShadow: [
                                      BoxShadow(
-                                       color: Colors.white,
+                                       color: Color(0xFFFFFFFF),
                                        spreadRadius: 5,
                                        offset: const Offset(4, 4),
                                        blurRadius: 10,
@@ -59,83 +57,96 @@ class Food_Dashboard extends StatelessWidget {
                      ),
 
                     Padding(
-                      padding: const EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.all(15.0),
                       child: Container(
-                        width: 50,
-                        height: 50,
-                        color: Colors.white,
+                        width: double.infinity,
+                        height: 60,
                         decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white,width: 1),
-                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: Colors.brown,width: 2),
+                            borderRadius: BorderRadius.circular(4),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.white,
+                                color: Color(0xFFFFFFFF),
                                 spreadRadius: 5,
                                 offset: const Offset(4, 4),
                                 blurRadius: 10,
                               )
                             ]
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                           children: [
-                             Icon(Icons.location_on,color: Colors.brown,size: 40,),
-                             Expanded(child: Column(
-                               children: [
-                                 Text("Deliver to",style: TextStyle(color: Colors.brown),),
-                                 Expanded(child: Row(
-                                   children: [
-                                     Text("2218 Baker Street,London",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500),),
-                                     Icon(Icons.arrow_drop_down_outlined)
-                                   ],
-                                 )),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                             children: [
+                               Icon(Icons.location_on,color: Colors.brown,size: 20,),
+                               SizedBox(height: 5,),
+                               Expanded(child: Column(
+                                 mainAxisAlignment: MainAxisAlignment.start,
+                                 children: [
+                                   Text("Deliver to",textAlign:TextAlign.start,style: TextStyle(color: Colors.brown),),
+                                   Expanded(child: Row(
+                                     children: [
+                                       Text("2218 Baker Street,London",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500),),
+                                       Icon(Icons.arrow_drop_down_outlined)
+                                     ],
+                                   )),
 
-                               ],
-                             )),
-                             Icon(Icons.search,color: Colors.brown,)
-                           ],
+                                 ],
+                               )),
+                               Icon(Icons.search,color: Colors.brown,)
+                             ],
+                          ),
                         ),
                       ),
                     ),
 
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(15.0),
                       child: Container(
-                        color: Colors.brown,
+
                         width: double.infinity,
-                        height: 150,
+                        height: 200,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5)
+                              ,
+                          color: Colors.brown
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                             Column(
-                               mainAxisAlignment: MainAxisAlignment.spaceAround,
-                               children: [
-                                 Text("FRESH",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w900),),
-                                 Text("CALIFORNIAN.",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w900),),
-                                 Text("FEARLESS.",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w900),),
-                                 Text("Burritos, Tacos & Bowls",style: TextStyle(color: Colors.white),),
-                                 Text("Made Your Way",style: TextStyle(color: Colors.white),),
-                                 ElevatedButton(onPressed: (){},
-                                     child : Row(
-                                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                       children: [
-                                         Text("Order Now",style: TextStyle(color: Colors.brown,fontWeight: FontWeight.w600),),
-                                         Icon(Icons.arrow_right_alt_rounded)
-                                       ],
-                                     )
-                                 ),
-                               ],
-                             ),
-                             SizedBox(width: 10,),
-                            Row(
-                              children: [
-                                Image.network("https://images.pexels.com/photos/236047/pexels-photo-236047.jpeg?cs=srgb&dl=clouds-cloudy-countryside-236047.jpg&fm=jpg",fit: BoxFit.cover,)
-                              ],
-                            )
-                          ],
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                               Column(
+                                 // mainAxisAlignment: MainAxisAlignment.start,
+                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                 children: [
+                                   Text("FRESH",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w900),),
+                                   Text("CALIFORNIAN.",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w900),),
+                                   Text("FEARLESS.",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w900),),
+                                   SizedBox(height: 5,),
+                                   Text("Burritos, Tacos & Bowls",style: TextStyle(color: Colors.white),),
+                                   SizedBox(height: 5,),
+                                   Text("Made Your Way",style: TextStyle(color: Colors.white),),
+                                   SizedBox(height: 20,),
+                                   ElevatedButton(onPressed: (){},
+                                       child : Row(
+                                         mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                         children: [
+                                           Text("Order Now",style: TextStyle(color: Colors.brown,fontWeight: FontWeight.w600),),
+                                           Icon(Icons.arrow_right_alt_rounded)
+                                         ],
+                                       )
+                                   ),
+                                 ],
+                               ),
+                               SizedBox(width: 10,),
+                              Row(
+                                children: [
+                                  Image.asset("name")
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
 
                       ),
@@ -144,9 +155,9 @@ class Food_Dashboard extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: Container(
-                        width: double.infinity,
+                        // width: double.infinity,
                         height: 50,
-                        color: Color(0xDE776EA5),
+
                         decoration: BoxDecoration(
                             border: Border.all(color: Colors.white,width: 1),
                             borderRadius: BorderRadius.circular(20),
@@ -330,7 +341,7 @@ class Food_Dashboard extends StatelessWidget {
                                 children: [
                                   Text("8.75",style: TextStyle(color: Colors.brown)),
                                   Container(
-                                    color: Colors.white,
+
                                     width: 40,
                                     height: 40,
                                     decoration: BoxDecoration(
@@ -382,7 +393,7 @@ class Food_Dashboard extends StatelessWidget {
                                 children: [
                                   Text("8.75",style: TextStyle(color: Colors.brown)),
                                   Container(
-                                    color: Colors.white,
+
                                     width: 40,
                                     height: 40,
                                     decoration: BoxDecoration(
@@ -434,7 +445,7 @@ class Food_Dashboard extends StatelessWidget {
                                 children: [
                                   Text("8.75",style: TextStyle(color: Colors.brown)),
                                   Container(
-                                    color: Colors.white,
+
                                     width: 40,
                                     height: 40,
                                     decoration: BoxDecoration(
@@ -455,7 +466,7 @@ class Food_Dashboard extends StatelessWidget {
                       child: Container(
                         width: 50,
                         height: 50,
-                        color: Colors.white,
+
                         decoration: BoxDecoration(
                             border: Border.all(color: Colors.white,width: 1),
                             borderRadius: BorderRadius.circular(20),
@@ -472,7 +483,6 @@ class Food_Dashboard extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              color: Colors.white,
                               width: 40,
                               height: 40,
                               decoration: BoxDecoration(
@@ -494,7 +504,7 @@ class Food_Dashboard extends StatelessWidget {
                             )),
 
                                 Container(
-                                  color: Colors.brown,
+
                                   width: 40,
                                   height: 40,
                                   decoration: BoxDecoration(

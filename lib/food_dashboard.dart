@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-class Food_Dashboard extends StatelessWidget {
-  const Food_Dashboard({super.key});
+class FoodDashboard extends StatelessWidget {
+  const FoodDashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -139,10 +139,10 @@ class Food_Dashboard extends StatelessWidget {
                                    ),
                                  ],
                                ),
-                               SizedBox(width: 10,),
+                               // SizedBox(width: 10,),
                               Row(
                                 children: [
-                                  Image.asset("name")
+                                  Image.network("https://tse2.mm.bing.net/th/id/OIP.xnOdHsT-Ny1NUwz1uv5r-AHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",width: 20,),
                                 ],
                               ),
                             ],
@@ -155,8 +155,8 @@ class Food_Dashboard extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: Container(
-                        // width: double.infinity,
-                        height: 50,
+                        width: double.infinity,
+                        // height: 150,
 
                         decoration: BoxDecoration(
                             border: Border.all(color: Colors.white,width: 1),
@@ -190,6 +190,7 @@ class Food_Dashboard extends StatelessWidget {
                               ),
                             ),
                             SizedBox(width: 5,),
+
                             Expanded(
                               child: Container(
                                 height : 40,
@@ -309,7 +310,7 @@ class Food_Dashboard extends StatelessWidget {
                                 alignment: Alignment.centerLeft,
                                 children: [
                                   Image.network("https://images.pexels.com/photos/236047/pexels-photo-236047.jpeg?cs=srgb&dl=clouds-cloudy-countryside-236047.jpg&fm=jpg",
-                                    height: 150,
+                                    height: 100,
                                     fit: BoxFit.cover,
                                   ),
                                   Positioned(
@@ -461,66 +462,66 @@ class Food_Dashboard extends StatelessWidget {
                       ),
                     ),
 
-                    Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Container(
-                        width: 50,
-                        height: 50,
-
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white,width: 1),
-                            borderRadius: BorderRadius.circular(20),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.white,
-                                spreadRadius: 5,
-                                offset: const Offset(4, 4),
-                                blurRadius: 10,
-                              )
-                            ]
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              width: 40,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                              ),
-                              child: Icon(Icons.star,color:Colors.brown,),
-                            ),
-                            Expanded(child: Column(
-                              children: [
-                                Text("TORTILLA REWARDS",style: TextStyle(color: Colors.brown),),
-                                Expanded(child: Row(
-                                  children: [
-                                    Text("Earn points with every order and get exclusive perks.",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500),),
-
-                                  ],
-                                )),
-
-                              ],
-                            )),
-
-                                Container(
-
-                                  width: 40,
-                                  height: 40,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                    children: [
-                                      Text("Join Now",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600),),
-                                    ],
-                                  ),
-                                ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    // Padding(
+                    //   padding: const EdgeInsets.all(20.0),
+                    //   child: Container(
+                    //     width: 50,
+                    //     height: 50,
+                    //
+                    //     decoration: BoxDecoration(
+                    //         border: Border.all(color: Colors.white,width: 1),
+                    //         borderRadius: BorderRadius.circular(20),
+                    //         boxShadow: [
+                    //           BoxShadow(
+                    //             color: Colors.white,
+                    //             spreadRadius: 5,
+                    //             offset: const Offset(4, 4),
+                    //             blurRadius: 10,
+                    //           )
+                    //         ]
+                    //     ),
+                    //     child: Row(
+                    //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //       children: [
+                    //         Container(
+                    //           width: 40,
+                    //           height: 40,
+                    //           decoration: BoxDecoration(
+                    //             borderRadius: BorderRadius.circular(50),
+                    //           ),
+                    //           child: Icon(Icons.star,color:Colors.brown,),
+                    //         ),
+                    //         Expanded(child: Column(
+                    //           children: [
+                    //             Text("TORTILLA REWARDS",style: TextStyle(color: Colors.brown),),
+                    //             Expanded(child: Row(
+                    //               children: [
+                    //                 Text("Earn points with every order and get exclusive perks.",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w500),),
+                    //
+                    //               ],
+                    //             )),
+                    //
+                    //           ],
+                    //         )),
+                    //
+                    //             Container(
+                    //
+                    //               width: 40,
+                    //               height: 40,
+                    //               decoration: BoxDecoration(
+                    //                 borderRadius: BorderRadius.circular(50),
+                    //               ),
+                    //               child: Row(
+                    //                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    //                 children: [
+                    //                   Text("Join Now",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600),),
+                    //                 ],
+                    //               ),
+                    //             ),
+                    //       ],
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
             ) ),

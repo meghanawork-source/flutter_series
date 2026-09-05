@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  runApp(const WelCome());
 }
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class WelCome extends StatelessWidget {
+  const WelCome({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +30,7 @@ class MyApp extends StatelessWidget {
                   children: [
                     const Icon(
                       Icons.flutter_dash,
-                      size: 15,
+                      size: 80,
                       color: Colors.white,
                     ),
                     SizedBox(height: 30),

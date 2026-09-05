@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'insta.dart';
+import 'package:practice/profile.dart';
+
 
 void main() {
   // Required once before any media_kit Player/VideoController is created.
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Insta(),
+      home: Profile(),
     );
   }
 }

@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:practice/02-09(welcome).dart';
+// import 'package:practice/02-09(welcome).dart';
+// import 'package:practice/splash.dart';
+// import 'package:practice/tab_switch.dart';
+
+import 'package:practice/working.dart';
+
+import 'left.dart';
+
+
 
 
 
@@ -24,7 +32,7 @@ class MyApp extends StatelessWidget {
           border: OutlineInputBorder(),
         ),
       ),
-      home: const Welcome(),
+      home: const Left(),
     );
   }
 }

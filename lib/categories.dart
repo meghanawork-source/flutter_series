@@ -12,7 +12,10 @@ class _CategoriesState extends State<Categories> {
     return Scaffold(
        appBar: AppBar(
          centerTitle: true,
-         leading: Icon(Icons.chevron_left,size: 35,color: Colors.black,),
+         leading: IconButton(
+           icon: const Icon(Icons.chevron_left, size: 35, color: Colors.black),
+           onPressed: () => Navigator.of(context).maybePop(),
+         ),
          title: Text("Categories", style: TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.w800),),
        ),
       body: Padding(

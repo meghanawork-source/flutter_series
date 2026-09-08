@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:practice/login.dart';
+
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF050537),
-      body: Column(
+      backgroundColor: const Color(0xFF050537),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 48),
+          child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const SizedBox(height: 80,),
+          const SizedBox(height: 24,),
            const Text("ShopEase",textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: 24,fontWeight: FontWeight.w500,),),
           const SizedBox(height: 10,),
           Image.asset("assets/images/apple.png",width: 220,height: 220,fit: BoxFit.contain,),
@@ -26,7 +31,10 @@ class Welcome extends StatelessWidget {
                 borderRadius : BorderRadius.circular(10)
               )
             ),
-              onPressed: (){}, child: Text("Get Started",style: TextStyle(color: Colors.white,fontSize: 18),)
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => const Login()),
+              ),
+              child: const Text("Get Started",style: TextStyle(color: Colors.white,fontSize: 18),)
           ),
          const SizedBox(height: 10,),
           Row(
@@ -61,7 +69,9 @@ class Welcome extends StatelessWidget {
               ),
             ],
           )
-        ],
+          ],
+        ),
+      ),
       ),
     );
   }

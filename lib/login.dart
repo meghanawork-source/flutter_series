@@ -1,15 +1,37 @@
 import 'package:flutter/material.dart';
-class Login extends StatelessWidget {
+import 'package:practice/dashboard.dart';
+
+class Login extends StatefulWidget {
   const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  final _formKey = GlobalKey<FormState>();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  bool _isChecked = false;
+  bool _obscurePassword = true;
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    bool isChecked = false;
     return Scaffold(
         body: SingleChildScrollView(
           child: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(28.0),
-                child: Column(
+                child: Form(
+                  key: _formKey,
+                  child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -33,6 +55,14 @@ class Login extends StatelessWidget {
                                  ),),
                                 SizedBox(height: 5,),
                                 TextFormField(
+                                  controller: _emailController,
+                                  keyboardType: TextInputType.emailAddress,
+                                  validator: (value) {
+                                    if (value == null || !value.contains('@')) {
+                                      return 'Enter a valid email address';
+                                    }
+                                    return null;
+                                  },
                                   decoration: const InputDecoration(
                                     border: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -46,18 +76,22 @@ class Login extends StatelessWidget {
                                 ),
                               ],
                             ),
-          
-                            SizedBox(height: 10,),
-          
+
+                            const SizedBox(height: 10),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Password",style: TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 18,
-                                ),),
-                                SizedBox(height: 5,),
+                                const Text("Password", style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18)),
+                                const SizedBox(height: 5),
                                 TextFormField(
+                                  controller: _passwordController,
+                                  obscureText: _obscurePassword,
+                                  validator: (value) {
+                                    if (value == null || value.length < 6) {
+                                      return 'Password must be at least 6 characters';
+                                    }
+                                    return null;
+                                  },
                                   decoration:  InputDecoration(
                                     border: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -67,18 +101,20 @@ class Login extends StatelessWidget {
                                     ),
                                     // labelText: "Password",
                                     hintText: "**********",
-                                    suffixIcon: IconButton(onPressed: (){}, icon: Icon(Icons.password))
+                                    suffixIcon: IconButton(
+                                      onPressed: () => setState(() => _obscurePassword = !_obscurePassword),
+                                      icon: Icon(_obscurePassword ? Icons.visibility : Icons.visibility_off),
+                                    )
                                   ),
                                 ),
                               ],
                             ),
-          
                             SizedBox(height: 10,),
                             Text("Forgot Password?",style: TextStyle(color:Colors.deepPurpleAccent),),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Checkbox(value: isChecked, onChanged: (value)=>{}),
+                                Checkbox(value: _isChecked, onChanged: (value) => setState(() => _isChecked = value ?? false)),
                                 // SizedBox(width: 5,),
                                 RichText(text: TextSpan(
                                   text: "I agree to ",
@@ -104,7 +140,17 @@ class Login extends StatelessWidget {
                                           borderRadius : BorderRadius.circular(10)
                                       ),
                                   ),
-                                  onPressed: (){}, child: Text("Login",style: TextStyle(color: Colors.white,fontSize: 18),),
+                                  onPressed: () {
+                                    if (_formKey.currentState!.validate() && _isChecked) {
+                                      Navigator.of(context).pushReplacement(
+                                        MaterialPageRoute(builder: (_) => const Dashboard()),
+                                      );
+                                    } else if (!_isChecked) {
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(content: Text('Accept the terms to continue')),
+                                      );
+                                    }
+                                  }, child: const Text("Login",style: TextStyle(color: Colors.white,fontSize: 18),),
                               ),
                             ),
                             SizedBox(height: 5,),
@@ -173,8 +219,10 @@ class Login extends StatelessWidget {
                             ),
                           ],
                         ),
-              )),
-        ),
+                      ),
+                    ),
+                  ),
+                ),
     );
   }
 }

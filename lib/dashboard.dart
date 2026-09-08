@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:practice/cart.dart';
+import 'package:practice/categories.dart';
+import 'package:practice/profile.dart';
+
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
 
@@ -14,9 +18,9 @@ class _DashboardState extends State<Dashboard> {
        appBar: AppBar(
          title: Text("Hi,Welcome"),
          actions : [
-              IconButton(onPressed: (){}, icon: Icon(Icons.bathtub)),
+              IconButton(onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const Categories())), icon: Icon(Icons.category_outlined)),
            SizedBox(height: 10,),
-           IconButton(onPressed: (){}, icon: Icon(Icons.shopping_cart)),
+           IconButton(onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const Cart())), icon: Icon(Icons.shopping_cart)),
            SizedBox(height: 10,),
          ],
        ),
@@ -273,6 +277,16 @@ class _DashboardState extends State<Dashboard> {
           setState(() {
             currentIndex = index;
           });
+          final destination = switch (index) {
+            1 => const Categories(),
+            2 => const Cart(),
+            3 => const Profile(),
+            // 4 => const profile(),
+            _ => null,
+          };
+          if (destination != null) {
+            Navigator.of(context).push(MaterialPageRoute(builder: (_) => destination));
+          }
         },
         items: const [
           BottomNavigationBarItem(

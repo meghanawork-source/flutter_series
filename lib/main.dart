@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:practice/profile.dart';
+import 'package:practice/02-09(welcome).dart';
+
 
 
 void main() {
@@ -15,7 +16,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Profile(),
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4F46E5)),
+        scaffoldBackgroundColor: const Color(0xFFF8F8FC),
+        inputDecorationTheme: const InputDecorationTheme(
+          border: OutlineInputBorder(),
+        ),
+      ),
+      home: const Welcome(),
     );
   }
 }

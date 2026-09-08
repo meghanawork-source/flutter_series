@@ -176,8 +176,9 @@ class Cart extends StatelessWidget {
       bottomNavigationBar: Padding(padding: EdgeInsets.all(20),
          child: ElevatedButton(
            style: ElevatedButton.styleFrom(backgroundColor: Colors.deepPurple),
-             onPressed: (){},
-             child: Text("Proceed to Checkout",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
+         onPressed: (){
+        Navigator.push(context, MaterialPageRoute(builder: (_) => Cart()));
+        }, child: Text("Proceed to Checkout",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
       ),
     );
   }

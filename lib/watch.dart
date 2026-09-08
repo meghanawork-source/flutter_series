@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'cart.dart';
 class Watch extends StatefulWidget {
   const Watch({super.key});
 
@@ -148,7 +150,9 @@ class _WatchState extends State<Watch> {
            height: 50,
            child: ElevatedButton(
                style: ElevatedButton.styleFrom(backgroundColor: Colors.deepPurple),
-               onPressed: (){}, child: Text("Add to Cart",style: TextStyle(color: Colors.white),)),
+               onPressed: (){
+                 Navigator.push(context, MaterialPageRoute(builder: (_) => Cart()));
+               }, child: Text("Add to Cart",style: TextStyle(color: Colors.white),)),
          ),
       )
     );
